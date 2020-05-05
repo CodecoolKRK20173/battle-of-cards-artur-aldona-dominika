@@ -1,4 +1,4 @@
-public class Card {
+public class Card implements Comparable<Card>{
 
     private String name;
     private int intelligence;
@@ -48,5 +48,10 @@ public class Card {
                 ", endurance=" + endurance +
                 ", agility=" + agility +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Card o) {
+        return this.getName().compareTo(o.getName());
     }
 }
