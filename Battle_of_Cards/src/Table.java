@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.Collections;
 
 public class Table {
     
@@ -9,4 +10,12 @@ public class Table {
         this.cards = xml.CardParser(xml.loadXMLDocument("src/resources/DragonLeague.xml"));
     }
 
+    public List<Card> getCards() {
+        return cards;
+    }
+
+    public void shuffle() {
+
+        Collections.shuffle(this.cards);
+    }
 }
