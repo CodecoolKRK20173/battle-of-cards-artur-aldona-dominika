@@ -38,4 +38,15 @@ public class Card {
 
         return agility;
     }
+    
+    @Override
+    public String toString() {
+        return "Card{" +
+                "name='" + name + '\'' +
+                ", intellingence=" + intelligence +
+                 ", strength=" + strength +
+                ", endurance=" + endurance +
+                ", agility=" + agility +
+                '}';
+    }
 }
