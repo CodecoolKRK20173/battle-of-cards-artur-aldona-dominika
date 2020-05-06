@@ -34,17 +34,17 @@ public class Card implements Comparable<Card>{
         return endurance;
     }
 
-   public int getAgility() {
+    public int getAgility() {
 
         return agility;
     }
-    
+
     @Override
     public String toString() {
         return "Card{" +
                 "name='" + name + '\'' +
                 ", intelligence=" + intelligence +
-                 ", strength=" + strength +
+                ", strength=" + strength +
                 ", endurance=" + endurance +
                 ", agility=" + agility +
                 '}';
@@ -55,3 +55,5 @@ public class Card implements Comparable<Card>{
         return this.getName().compareTo(o.getName());
     }
 }
+
+
