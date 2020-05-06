@@ -1,5 +1,3 @@
-import java.util.List;
-
 public abstract class Player {
 
     protected String name;
@@ -13,9 +11,11 @@ public abstract class Player {
     }
 
     protected abstract int chooseAtribiuteToPlay();
-    protected abstract List<Card> takeCardsFromTable();
+    protected abstract boolean setPlayerTurn(boolean Turn);
+    protected abstract void addCardToPlayerCardSet(Card card);
+    protected abstract void playerGameTurn();
 
-    // hand - lista kart ktore Player otrzymuje od table (16) pozniej bedzie wiecej, private
+    // playerCardsSet (hand) - lista kart ktore Player otrzymuje od table (16) pozniej bedzie wiecej, private
     // jesli do hand trafia dwie karty (wygrana) to jest ruch gracza (jakis boolean = True)
     // gracz ktory przegra nie dostaje dwoch kart (przegrana) to jest ruch przeciwnika (jakis boolean = Fase)
     // ....gracz decyduje jakim atrybutem bedzie rozgrywka np strengh (wywolanie metody jest w engine)

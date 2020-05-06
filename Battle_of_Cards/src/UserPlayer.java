@@ -8,12 +8,13 @@ public class UserPlayer extends Player {
 
     Card card;
     Table table;
-    int userChoosedAtribiute; // Input class will input user choice
-    List<Card> playerCardsSet;
+    public int userChoosedAtribiute; // Input class will input user choice
+    public List<Card> playerCardsSet;
+    public boolean isPlayerTurnToPutCardOnTable;
 
     @Override
     protected int chooseAtribiuteToPlay() {
-        int userChoice = 1;
+        int userChoice = 1; // tutaj uzyje klasy Input
 
         switch (userChoosedAtribiute){
             case 1:
@@ -33,7 +34,19 @@ public class UserPlayer extends Player {
     }
 
     @Override
-    protected List<Card> takeCardsFromTable() {
-        return null;
+    protected boolean setPlayerTurn(boolean Turn) {
+        return isPlayerTurnToPutCardOnTable = Turn;
+    }
+
+    @Override
+    protected void addCardToPlayerCardSet(Card card) {
+        playerCardsSet.add(card);
+    }
+
+    @Override
+    protected void playerGameTurn() {
+    // jesli playerCardsSet dostanie dwie karty to setPlayerTurn(True)
+        // jesli playerCardsSet nie dostanie karty po odjeciu jednej karty z playerCardsSet
+        // to setPlayerTurn(False)
     }
 }
