@@ -12,13 +12,11 @@ public abstract class Player {
         return name;
     }
 
-
     abstract ArrayList<CardsCollection> takeCardFromEnemy();
     abstract ArrayList<CardsCollection> putCardOnGameTable();
     abstract void countYourCards();
     abstract void displayCardList();
     abstract void displayTheMostPowerfulCard();
     abstract void displayTheWeakestCard();
-
 
 }
