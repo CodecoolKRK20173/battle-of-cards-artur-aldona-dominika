@@ -18,7 +18,7 @@ public class XMLParser {
         document.getDocumentElement().normalize();
         return document;
     }
-//
+
 //    public List<View> CardParser(Document document) {
 //        List<View> cards = new ArrayList<>();
 //        NodeList nodeList = document.getElementsByTagName("Dragon");

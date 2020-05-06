@@ -10,7 +10,7 @@ public class CardsCollection {
     public ArrayList getCardsArray() {
         return arrayCards;
     }
-
+//
 //    public ArrayList addToArray() {
 //
 //        for (int i =  0; i < arrayCards.size(); i++) {

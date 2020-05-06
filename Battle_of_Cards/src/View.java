@@ -5,6 +5,10 @@ import com.jakewharton.fliptables.FlipTableConverters;
 import java.util.Arrays;
 
 public class View {
+
+    View() {
+
+    }
     void printCards() {
 
         Card card1 = new Card("Zarroit", 10,10, 10, 10);
