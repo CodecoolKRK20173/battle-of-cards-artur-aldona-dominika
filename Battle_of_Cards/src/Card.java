@@ -1,3 +1,4 @@
+
 public class Card implements Comparable<Card>{
 
     private String name;
@@ -41,13 +42,11 @@ public class Card implements Comparable<Card>{
     
     @Override
     public String toString() {
-        return "Card{" +
-                "name='" + name + '\'' +
-                ", intellingence=" + intelligence +
-                 ", strength=" + strength +
-                ", endurance=" + endurance +
-                ", agility=" + agility +
-                '}';
+        return "name= " + name + "\n" +
+                "intellingence= " + intelligence + "\n" +
+                 "strength= " + strength + "\n" +
+                "endurance= " + endurance + "\n" +
+                "agility= " + agility;
     }
 
     @Override
@@ -55,3 +54,4 @@ public class Card implements Comparable<Card>{
         return this.getName().compareTo(o.getName());
     }
 }
+

@@ -14,22 +14,22 @@ public class XMLParser {
 
     public Document loadXMLDocument(String xmlPath) throws SAXException, IOException, ParserConfigurationException{
 
-        Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(xmlPath);
+        Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse("DragonLeague.xml");
         document.getDocumentElement().normalize();
         return document;
     }
-
-    public List<Card> CardParser(Document document) {
-        List<Card> cards = new ArrayList<>();
-        NodeList nodeList = document.getElementsByTagName("Dragon");
-        for (int i = 0; i < nodeList.getLength(); i++) {
-            Node tempNode = nodeList.item(i);
-            Element tempElement = (Element) tempNode;
-            Node attributeNode = tempElement.getElementsByTagName("Attribute").item(0);
-            Element attributeElement = (Element) attributeNode;
-            cards.add(new Card(attributeElement.getAttribute("name"), Integer.parseInt(attributeElement.getAttribute(("intelligence"))), Integer.parseInt(attributeElement.getAttribute(("strength"))), Integer.parseInt(attributeElement.getAttribute(("endurance"))),
-                    Integer.parseInt(attributeElement.getAttribute(("agility")))));
-        }
-        return cards;
-    }
+//
+//    public List<View> CardParser(Document document) {
+//        List<View> cards = new ArrayList<>();
+//        NodeList nodeList = document.getElementsByTagName("Dragon");
+//        for (int i = 0; i < nodeList.getLength(); i++) {
+//            Node tempNode = nodeList.item(i);
+//            Element tempElement = (Element) tempNode;
+//            Node attributeNode = tempElement.getElementsByTagName("Attribute").item(0);
+//            Element attributeElement = (Element) attributeNode;
+//            cards.add(new View(attributeElement.getAttribute("name"), Integer.parseInt(attributeElement.getAttribute(("intelligence"))), Integer.parseInt(attributeElement.getAttribute(("strength"))), Integer.parseInt(attributeElement.getAttribute(("endurance"))),
+//                    Integer.parseInt(attributeElement.getAttribute(("agility")))));
+//        }
+//        return cards;
+//    }
 }
