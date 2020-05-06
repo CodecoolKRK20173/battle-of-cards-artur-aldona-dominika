@@ -7,9 +7,9 @@ public class Main {
 
 
     public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
-        Prints print = new Prints();
-        print.Menu();
+
         View printCards = new View();
+        printCards.Menu();
         printCards.printCards();
         Engine gameStart = new Engine();
         gameStart.start();
