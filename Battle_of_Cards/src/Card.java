@@ -7,9 +7,9 @@ public class Card implements Comparable<Card>{
     private int endurance;
     private int agility;
 
-    public Card(String name, int intellingence, int strength, int endurance,  int agility) {
+    public Card(String name, int intelligence, int strength, int endurance,  int agility) {
         this.name = name;
-        this.intelligence = intellingence;
+        this.intelligence = intelligence;
         this.strength = strength;
         this.endurance = endurance;
         this.agility = agility;
@@ -42,11 +42,12 @@ public class Card implements Comparable<Card>{
     
     @Override
     public String toString() {
-        return "name= " + name + "\n" +
-                "intellingence= " + intelligence + "\n" +
-                 "strength= " + strength + "\n" +
-                "endurance= " + endurance + "\n" +
-                "agility= " + agility;
+
+        return "name= " + getName() + "\n" +
+                "intelligence= " + getIntelligence() + "\n" +
+                 "strength= " + getStrength() + "\n" +
+                "endurance= " + getEndurance() + "\n" +
+                "agility= " + getAgility();
     }
 
     @Override
@@ -54,4 +55,5 @@ public class Card implements Comparable<Card>{
         return this.getName().compareTo(o.getName());
     }
 }
+
 

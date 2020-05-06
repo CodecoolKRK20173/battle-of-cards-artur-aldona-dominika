@@ -1,0 +1,96 @@
+Index: Battle_of_Cards/src/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>public class Main {\n\n\n    public static void main(String[] args) {\n        Engine gameStart = new Engine();\n        gameStart.start();\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Battle_of_Cards/src/Main.java	(revision 32c20dc4c83a92cd15653ecf8a163c148fb922ea)
++++ Battle_of_Cards/src/Main.java	(date 1588757435551)
+@@ -1,8 +1,19 @@
++import org.xml.sax.SAXException;
++
++import javax.xml.parsers.ParserConfigurationException;
++import java.io.IOException;
++
+ public class Main {
+ 
+ 
+-    public static void main(String[] args) {
++    public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
++        Prints print = new Prints();
++        print.Menu();
++        View printCards = new View();
++        printCards.printCards();
+         Engine gameStart = new Engine();
+         gameStart.start();
++        XMLParser test = new XMLParser();
++        test.loadXMLDocument("/home/dominika/codecool/battle-of-cards-artur-aldona-dominika/Battle_of_Cards/src/resources/DragonLeague.xml");
+     }
+ }
+Index: Battle_of_Cards/src/Card.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Battle_of_Cards/src/Card.java	(revision 32c20dc4c83a92cd15653ecf8a163c148fb922ea)
++++ Battle_of_Cards/src/Card.java	(date 1588757462443)
+@@ -1,0 +1,58 @@
++
++public class Card implements Comparable<Card>{
++
++    private String name;
++    private int intelligence;
++    private int strength;
++    private int endurance;
++    private int agility;
++
++    public Card(String name, int intellingence, int strength, int endurance,  int agility) {
++        this.name = name;
++        this.intelligence = intellingence;
++        this.strength = strength;
++        this.endurance = endurance;
++        this.agility = agility;
++    }
++
++    public String getName() {
++
++        return name;
++    }
++
++    public int getIntelligence() {
++
++        return intelligence;
++    }
++
++    public int getStrength() {
++
++        return strength;
++    }
++
++    public int getEndurance() {
++
++        return endurance;
++    }
++
++   public int getAgility() {
++
++        return agility;
++    }
++    
++    @Override
++    public String toString() {
++
++        return "name= " + getName() + "\n" +
++                "intellingence= " + getIntelligence() + "\n" +
++                 "strength= " + getStrength() + "\n" +
++                "endurance= " + getEndurance() + "\n" +
++                "agility= " + getAgility();
++    }
++
++    @Override
++    public int compareTo(Card o) {
++        return this.getName().compareTo(o.getName());
++    }
++}
++

@@ -31,3 +31,10 @@ public class View {
 
     }
 }
+
+//input imie uzytkownika
+//dla playera 1-karta player 1 -->
+//randomowe wyswietlanie karty-karta playera 1-input ktora umiejetnosc wykorzystac
+//porownanie do karty player 2 - print obu kart obok siebie
+//mozliwosc zobaczenia wszystkich kart przed gra
+//
