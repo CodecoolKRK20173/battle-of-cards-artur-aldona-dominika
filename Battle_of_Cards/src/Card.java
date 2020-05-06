@@ -6,9 +6,9 @@ public class Card implements Comparable<Card>{
     private int endurance;
     private int agility;
 
-    public Card(String name, int intellingence, int strength, int endurance,  int agility) {
+    public Card(String name, int intelligence, int strength, int endurance,  int agility) {
         this.name = name;
-        this.intelligence = intellingence;
+        this.intelligence = intelligence;
         this.strength = strength;
         this.endurance = endurance;
         this.agility = agility;
