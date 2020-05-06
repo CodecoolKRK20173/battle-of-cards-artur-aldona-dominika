@@ -1,3 +1,4 @@
+
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -38,10 +39,11 @@ public class Card implements Comparable<Card>{
         return endurance;
     }
 
-   public int getAgility() {
+
+    public int getAgility() {
         return agility;
     }
-    
+
     @Override
     public String toString() {
 

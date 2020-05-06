@@ -11,6 +11,7 @@ public class Table {
     private List<Card> cards;
 
     public Table() throws ParserConfigurationException, SAXException, IOException {
+
         this.cards = xml.CardParser(xml.loadXMLDocument("/home/dominika/codecool/battle-of-cards-artur-aldona-dominika/Battle_of_Cards/src/resources/DragonLeague.xml"));
     }
 
