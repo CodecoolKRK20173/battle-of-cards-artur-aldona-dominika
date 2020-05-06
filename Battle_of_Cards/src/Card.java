@@ -43,7 +43,7 @@ public class Card implements Comparable<Card>{
     public String toString() {
         return "Card{" +
                 "name='" + name + '\'' +
-                ", intellingence=" + intelligence +
+                ", intelligence=" + intelligence +
                  ", strength=" + strength +
                 ", endurance=" + endurance +
                 ", agility=" + agility +

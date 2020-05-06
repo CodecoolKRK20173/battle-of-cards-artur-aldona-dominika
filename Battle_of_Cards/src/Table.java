@@ -1,3 +1,7 @@
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.IOException;
 import java.util.List;
 import java.util.Collections;
 
@@ -6,7 +10,7 @@ public class Table {
     private XMLParser xml = new XMLParser();
     private List<Card> cards;
 
-    public Table() {
+    public Table() throws ParserConfigurationException, SAXException, IOException {
         this.cards = xml.CardParser(xml.loadXMLDocument("src/resources/DragonLeague.xml"));
     }
 
