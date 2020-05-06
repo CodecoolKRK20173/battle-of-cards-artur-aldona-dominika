@@ -1,0 +1,54 @@
+Index: Battle_of_Cards/src/XMLParser.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import org.w3c.dom.Document;\nimport org.w3c.dom.Element;\nimport org.w3c.dom.Node;\nimport org.w3c.dom.NodeList;\nimport org.xml.sax.SAXException;\nimport javax.xml.parsers.DocumentBuilderFactory;\nimport javax.xml.parsers.DocumentBuilder;\nimport javax.xml.parsers.ParserConfigurationException;\nimport java.io.IOException;\nimport java.util.List;\nimport java.util.ArrayList;\n\npublic class XMLParser {\n\n    public Document loadXMLDocument(String xmlPath) throws SAXException, IOException, ParserConfigurationException{\n\n        Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(\"DragonLeague.xml\");\n        document.getDocumentElement().normalize();\n        return document;\n    }\n\n//    public List<View> CardParser(Document document) {\n//        List<View> cards = new ArrayList<>();\n//        NodeList nodeList = document.getElementsByTagName(\"Dragon\");\n//        for (int i = 0; i < nodeList.getLength(); i++) {\n//            Node tempNode = nodeList.item(i);\n//            Element tempElement = (Element) tempNode;\n//            Node attributeNode = tempElement.getElementsByTagName(\"Attribute\").item(0);\n//            Element attributeElement = (Element) attributeNode;\n//            cards.add(new View(attributeElement.getAttribute(\"name\"), Integer.parseInt(attributeElement.getAttribute((\"intelligence\"))), Integer.parseInt(attributeElement.getAttribute((\"strength\"))), Integer.parseInt(attributeElement.getAttribute((\"endurance\"))),\n//                    Integer.parseInt(attributeElement.getAttribute((\"agility\")))));\n//        }\n//        return cards;\n//    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Battle_of_Cards/src/XMLParser.java	(revision 6576dc0b4c2e66bad86a867bb86a5e5b320d9389)
++++ Battle_of_Cards/src/XMLParser.java	(date 1588756245038)
+@@ -14,22 +14,29 @@
+ 
+     public Document loadXMLDocument(String xmlPath) throws SAXException, IOException, ParserConfigurationException{
+ 
+-        Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse("DragonLeague.xml");
++        Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(xmlPath);
+         document.getDocumentElement().normalize();
+         return document;
+     }
+ 
+-//    public List<View> CardParser(Document document) {
+-//        List<View> cards = new ArrayList<>();
+-//        NodeList nodeList = document.getElementsByTagName("Dragon");
+-//        for (int i = 0; i < nodeList.getLength(); i++) {
+-//            Node tempNode = nodeList.item(i);
+-//            Element tempElement = (Element) tempNode;
+-//            Node attributeNode = tempElement.getElementsByTagName("Attribute").item(0);
+-//            Element attributeElement = (Element) attributeNode;
+-//            cards.add(new View(attributeElement.getAttribute("name"), Integer.parseInt(attributeElement.getAttribute(("intelligence"))), Integer.parseInt(attributeElement.getAttribute(("strength"))), Integer.parseInt(attributeElement.getAttribute(("endurance"))),
+-//                    Integer.parseInt(attributeElement.getAttribute(("agility")))));
+-//        }
+-//        return cards;
+-//    }
++    public List<Card> CardParser(Document document) {
++        List<Card> cards = new ArrayList<>();
++        NodeList nodeList = document.getElementsByTagName("Dragon");
++        for (int i = 0; i < nodeList.getLength(); i++) {
++            Node tempNode = nodeList.item(i);
++            Element tempElement = (Element) tempNode;
++            Node attributeNode = tempElement.getElementsByTagName("Attribute").item(0);
++            Element attributeElement = (Element) attributeNode;
++            String name = attributeElement.getAttribute("name");
++            int intelligence = Integer.parseInt(attributeNode.getTextContent());
++            cards.add(new Card(attributeElement.getAttribute("name"),
++                    Integer.parseInt(attributeElement.getAttribute(("intelligence"))),
++                    Integer.parseInt(attributeElement.getAttribute(("strength"))),
++                    Integer.parseInt(attributeElement.getAttribute(("endurance"))),
++                    Integer.parseInt(attributeElement.getAttribute(("agility")))));
++
++            System.out.println(intelligence);
++        }
++        return cards;
++    }
+ }
+\ No newline at end of file

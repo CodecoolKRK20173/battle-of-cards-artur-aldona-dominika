@@ -27,7 +27,10 @@ public class XMLParser {
             Element tempElement = (Element) tempNode;
             Node attributeNode = tempElement.getElementsByTagName("Attribute").item(0);
             Element attributeElement = (Element) attributeNode;
-            cards.add(new Card(attributeElement.getAttribute("name"), Integer.parseInt(attributeElement.getAttribute(("intelligence"))), Integer.parseInt(attributeElement.getAttribute(("strength"))), Integer.parseInt(attributeElement.getAttribute(("endurance"))),
+            cards.add(new Card(attributeElement.getAttribute("name"),
+                    Integer.parseInt(attributeElement.getAttribute(("intelligence"))),
+                    Integer.parseInt(attributeElement.getAttribute(("strength"))),
+                    Integer.parseInt(attributeElement.getAttribute(("endurance"))),
                     Integer.parseInt(attributeElement.getAttribute(("agility")))));
         }
         return cards;

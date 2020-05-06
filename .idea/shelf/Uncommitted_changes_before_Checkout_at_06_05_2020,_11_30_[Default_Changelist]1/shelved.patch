@@ -1,0 +1,140 @@
+Index: Battle_of_Cards/src/Table.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import java.util.List;\nimport java.util.Collections;\n\npublic class Table {\n    \n    private XMLParser xml = new XMLParser();\n    private List<Card> cards;\n\n    public Table() {\n        this.cards = xml.CardParser(xml.loadXMLDocument(\"src/resources/DragonLeague.xml\"));\n    }\n\n    public List<Card> getCards() {\n        return cards;\n    }\n\n    public void shuffle() {\n\n        Collections.shuffle(this.cards);\n    }\n}
+===================================================================
+--- Battle_of_Cards/src/Table.java	(revision 6576dc0b4c2e66bad86a867bb86a5e5b320d9389)
++++ Battle_of_Cards/src/Table.java	(date 1588755774038)
+@@ -1,3 +1,7 @@
++import org.xml.sax.SAXException;
++
++import javax.xml.parsers.ParserConfigurationException;
++import java.io.IOException;
+ import java.util.List;
+ import java.util.Collections;
+ 
+@@ -6,7 +10,7 @@
+     private XMLParser xml = new XMLParser();
+     private List<Card> cards;
+ 
+-    public Table() {
++    public Table() throws ParserConfigurationException, SAXException, IOException {
+         this.cards = xml.CardParser(xml.loadXMLDocument("src/resources/DragonLeague.xml"));
+     }
+ 
+Index: Battle_of_Cards/src/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>public class Main {\n\n\n    public static void main(String[] args) {\n        Engine gameStart = new Engine();\n        gameStart.start();\n\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Battle_of_Cards/src/Main.java	(revision 6576dc0b4c2e66bad86a867bb86a5e5b320d9389)
++++ Battle_of_Cards/src/Main.java	(date 1588756687142)
+@@ -1,9 +1,19 @@
++import org.xml.sax.SAXException;
++
++import javax.xml.parsers.ParserConfigurationException;
++import java.io.IOException;
++
+ public class Main {
+ 
+ 
+-    public static void main(String[] args) {
++    public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
++        Prints print = new Prints();
++        print.Menu();
++        View printCards = new View();
++        printCards.printCards();
+         Engine gameStart = new Engine();
+         gameStart.start();
+-
++        XMLParser test = new XMLParser();
++        test.loadXMLDocument("/home/dominika/codecool/battle-of-cards-artur-aldona-dominika/Battle_of_Cards/src/resources/DragonLeague.xml");
+     }
+ }
+Index: Battle_of_Cards/src/View.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import com.github.tomaslanger.chalk.Chalk;\nimport com.jakewharton.fliptables.FlipTable;\nimport com.jakewharton.fliptables.FlipTableConverters;\n\nimport java.util.Arrays;\n\npublic class View {\n\n    View() {\n\n    }\n    void printCards() {\n\n        Card card1 = new Card(\"Zarroit\", 10,10, 10, 10);\n        Card card2 = new Card(\"Zaelliod\", 20, 20, 20, 20);\n\n\n        String card1Str = FlipTableConverters.fromIterable(Arrays.asList(card1), Card.class);\n        String card2Str = FlipTableConverters.fromIterable(Arrays.asList(card2), Card.class);\n\n\n        String headers[] = {\"PLAYER 1\"};\n        String data[][] = {{Chalk.on(card1.toString()).cyan().toString()}};\n\n        String headers1[] = {\"PLAYER 2\"};\n        String data1[][] = {{Chalk.on(card2.toString()).cyan().toString()}};\n\n\n        System.out.println(FlipTable.of(headers, data));\n        System.out.println(FlipTable.of(headers1, data1));\n\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Battle_of_Cards/src/View.java	(revision 6576dc0b4c2e66bad86a867bb86a5e5b320d9389)
++++ Battle_of_Cards/src/View.java	(date 1588757328249)
+@@ -1,7 +1,10 @@
+ import com.github.tomaslanger.chalk.Chalk;
+ import com.jakewharton.fliptables.FlipTable;
+ import com.jakewharton.fliptables.FlipTableConverters;
++import org.xml.sax.SAXException;
+ 
++import javax.xml.parsers.ParserConfigurationException;
++import java.io.IOException;
+ import java.util.Arrays;
+ 
+ public class View {
+@@ -9,7 +12,7 @@
+     View() {
+ 
+     }
+-    void printCards() {
++    void printCards() throws IOException, SAXException, ParserConfigurationException {
+ 
+         Card card1 = new Card("Zarroit", 10,10, 10, 10);
+         Card card2 = new Card("Zaelliod", 20, 20, 20, 20);
+@@ -19,10 +22,10 @@
+         String card2Str = FlipTableConverters.fromIterable(Arrays.asList(card2), Card.class);
+ 
+ 
+-        String headers[] = {"PLAYER 1"};
+-        String data[][] = {{Chalk.on(card1.toString()).cyan().toString()}};
++        String headers[] = {Chalk.on("PLAYER 1").bold().green().toString()};
++        String data[][] = {{Chalk.on(card1.toString()).red().toString()}};
+ 
+-        String headers1[] = {"PLAYER 2"};
++        String headers1[] = {Chalk.on("PLAYER 2").bold().yellow().toString()};
+         String data1[][] = {{Chalk.on(card2.toString()).cyan().toString()}};
+ 
+ 
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"CompilerConfiguration\">\n    <annotationProcessing>\n      <profile name=\"Maven default annotation processors profile\" enabled=\"true\">\n        <sourceOutputDir name=\"target/generated-sources/annotations\" />\n        <sourceTestOutputDir name=\"target/generated-test-sources/test-annotations\" />\n        <outputRelativeToContentRoot value=\"true\" />\n        <module name=\"battle-of-cards-artur-aldona-dominika\" />\n      </profile>\n    </annotationProcessing>\n    <bytecodeTargetLevel>\n      <module name=\"battle-of-cards-artur-aldona-dominika\" target=\"13\" />\n    </bytecodeTargetLevel>\n  </component>\n</project>
+===================================================================
+--- .idea/compiler.xml	(revision 6576dc0b4c2e66bad86a867bb86a5e5b320d9389)
++++ .idea/compiler.xml	(date 1588755228479)
+@@ -6,7 +6,6 @@
+         <sourceOutputDir name="target/generated-sources/annotations" />
+         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+         <outputRelativeToContentRoot value="true" />
+-        <module name="battle-of-cards-artur-aldona-dominika" />
+       </profile>
+     </annotationProcessing>
+     <bytecodeTargetLevel>
+Index: Battle_of_Cards/src/Card.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\npublic class Card implements Comparable<Card>{\n\n    private String name;\n    private int intelligence;\n    private int strength;\n    private int endurance;\n    private int agility;\n\n    public Card(String name, int intellingence, int strength, int endurance,  int agility) {\n        this.name = name;\n        this.intelligence = intellingence;\n        this.strength = strength;\n        this.endurance = endurance;\n        this.agility = agility;\n    }\n\n    public String getName() {\n\n        return name;\n    }\n\n    public int getIntelligence() {\n\n        return intelligence;\n    }\n\n    public int getStrength() {\n\n        return strength;\n    }\n\n    public int getEndurance() {\n\n        return endurance;\n    }\n\n   public int getAgility() {\n\n        return agility;\n    }\n    \n    @Override\n    public String toString() {\n        return \"name= \" + name + \"\\n\" +\n                \"intellingence= \" + intelligence + \"\\n\" +\n                 \"strength= \" + strength + \"\\n\" +\n                \"endurance= \" + endurance + \"\\n\" +\n                \"agility= \" + agility;\n    }\n\n    @Override\n    public int compareTo(Card o) {\n        return this.getName().compareTo(o.getName());\n    }\n}\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Battle_of_Cards/src/Card.java	(revision 6576dc0b4c2e66bad86a867bb86a5e5b320d9389)
++++ Battle_of_Cards/src/Card.java	(date 1588757127629)
+@@ -42,11 +42,12 @@
+     
+     @Override
+     public String toString() {
+-        return "name= " + name + "\n" +
+-                "intellingence= " + intelligence + "\n" +
+-                 "strength= " + strength + "\n" +
+-                "endurance= " + endurance + "\n" +
+-                "agility= " + agility;
++
++        return "name= " + getName() + "\n" +
++                "intellingence= " + getIntelligence() + "\n" +
++                 "strength= " + getStrength() + "\n" +
++                "endurance= " + getEndurance() + "\n" +
++                "agility= " + getAgility();
+     }
+ 
+     @Override
