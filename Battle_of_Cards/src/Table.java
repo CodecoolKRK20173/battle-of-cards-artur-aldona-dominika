@@ -12,8 +12,14 @@ public class Table {
 
     public Table() throws ParserConfigurationException, SAXException, IOException {
 
+<<<<<<< HEAD
         this.cards = xml.CardParser(xml.loadXMLDocument("C:\\Users\\aldon\\Desktop\\battle-of-cards-artur-aldona-dominika\\Battle_of_Cards\\src\\resources\\DragonLeague.xml"));
+=======
+        
 
+>>>>>>> 914715d597c6a368a84401c7b92cdd1c9cf02c74
+
+        this.cards = xml.CardParser(xml.loadXMLDocument("/home/dominika/codecool/battle-of-cards-artur-aldona-dominika/Battle_of_Cards/src/resources/DragonLeague.xml"));
     }
 
     public List<Card> getCards() {
