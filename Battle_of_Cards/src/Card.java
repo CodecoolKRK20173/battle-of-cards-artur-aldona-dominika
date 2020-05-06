@@ -1,4 +1,3 @@
-
 public class Card implements Comparable<Card>{
 
     private String name;
@@ -35,21 +34,20 @@ public class Card implements Comparable<Card>{
         return endurance;
     }
 
-   public int getAgility() {
+    public int getAgility() {
 
         return agility;
     }
-    
+
     @Override
     public String toString() {
-
-
-        return "name= " + getName() + "\n" +
-                "intelligence= " + getIntelligence() + "\n" +
-                 "strength= " + getStrength() + "\n" +
-                "endurance= " + getEndurance() + "\n" +
-                "agility= " + getAgility();
-
+        return "Card{" +
+                "name='" + name + '\'' +
+                ", intelligence=" + intelligence +
+                ", strength=" + strength +
+                ", endurance=" + endurance +
+                ", agility=" + agility +
+                '}';
     }
 
     @Override
