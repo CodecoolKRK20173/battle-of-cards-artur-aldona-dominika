@@ -1,0 +1,29 @@
+<changelist name="Uncommitted_changes_before_Checkout_at_06_05_2020,_11_30_[Default_Changelist]1" date="1588757467210" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_05_2020,_11_30_[Default_Changelist]1/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 06.05.2020, 11:30 [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/View.class" />
+    <option name="AFTER_PATH" value="target/classes/View.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_05_2020,_11_30_[Default_Changelist]1/View.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/XMLParser.class" />
+    <option name="AFTER_PATH" value="target/classes/XMLParser.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_05_2020,_11_30_[Default_Changelist]1/XMLParser.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/Card.class" />
+    <option name="AFTER_PATH" value="target/classes/Card.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_05_2020,_11_30_[Default_Changelist]1/Card.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/Player.class" />
+    <option name="AFTER_PATH" value="target/classes/Player.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_05_2020,_11_30_[Default_Changelist]1/Player.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/UserPlayer.class" />
+    <option name="AFTER_PATH" value="target/classes/UserPlayer.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_05_2020,_11_30_[Default_Changelist]1/UserPlayer.class" />
+  </binary>
+</changelist>
