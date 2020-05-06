@@ -1,3 +1,7 @@
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.IOException;
 
 public class Card implements Comparable<Card>{
 
@@ -21,7 +25,6 @@ public class Card implements Comparable<Card>{
     }
 
     public int getIntelligence() {
-
         return intelligence;
     }
 
@@ -43,12 +46,14 @@ public class Card implements Comparable<Card>{
     @Override
     public String toString() {
 
+//        return "NAME: " + getName() + "     \n" +
+//                "INTELLIGENCE: " + getIntelligence() + "\n" +
+//                 "STRENGTH: " + getStrength() + "\n" +
+//                "ENDURANCE: " + getEndurance() + "\n" +
+//                "AGILITY:      " + getAgility();
 
-        return "name= " + getName() + "\n" +
-                "intelligence= " + getIntelligence() + "\n" +
-                 "strength= " + getStrength() + "\n" +
-                "endurance= " + getEndurance() + "\n" +
-                "agility= " + getAgility();
+        String format = String.format("NAME:%1$s%nINTELLIGENCE:%2$d%nSTRENGTH:%3$d%n", getName(), getIntelligence(), getStrength());
+        return format;
 
     }
 

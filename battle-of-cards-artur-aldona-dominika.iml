@@ -13,7 +13,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Maven: com.jakewharton.fliptables:fliptables:1.1.0" level="project" />
-    <orderEntry type="library" name="Maven: io.bretty:console-table-builder:1.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.6" level="project" />
     <orderEntry type="library" name="Maven: com.github.tomas-langer:chalk:1.0.2" level="project" />
     <orderEntry type="library" name="Maven: org.fusesource.hawtjni:hawtjni-runtime:1.11" level="project" />
     <orderEntry type="library" name="Maven: org.fusesource.jansi:jansi-native:1.5" level="project" />

@@ -13,7 +13,5 @@ public class Main {
         printCards.printCards();
         Engine gameStart = new Engine();
         gameStart.start();
-        XMLParser test = new XMLParser();
-        test.loadXMLDocument("/home/dominika/codecool/battle-of-cards-artur-aldona-dominika/Battle_of_Cards/src/resources/DragonLeague.xml");
     }
 }
