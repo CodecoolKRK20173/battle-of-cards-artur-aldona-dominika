@@ -43,11 +43,13 @@ public class Card implements Comparable<Card>{
     @Override
     public String toString() {
 
+
         return "name= " + getName() + "\n" +
                 "intelligence= " + getIntelligence() + "\n" +
                  "strength= " + getStrength() + "\n" +
                 "endurance= " + getEndurance() + "\n" +
                 "agility= " + getAgility();
+
     }
 
     @Override
