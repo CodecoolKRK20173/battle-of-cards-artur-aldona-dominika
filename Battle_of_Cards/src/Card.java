@@ -61,7 +61,6 @@ public class Card implements Comparable<Card>{
                         getStrength(), getEndurance(), getAgility());
 
         return format;
-
     }
 
     @Override
