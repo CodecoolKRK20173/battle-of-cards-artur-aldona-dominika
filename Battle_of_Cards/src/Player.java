@@ -14,5 +14,5 @@ public abstract class Player {
     protected abstract boolean setPlayerTurn(boolean Turn);
     protected abstract void addCardToPlayerCardSet(Card card);
     protected abstract void playerGameTurn();
-    
+
 }
