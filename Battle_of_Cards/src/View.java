@@ -32,6 +32,7 @@ public class View {
         }
     }
 }
+//imie karty na srodku
 
 //input imie uzytkownika
 //dla playera 1-karta player 1 -->
