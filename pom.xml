@@ -41,5 +41,10 @@
             <artifactId>jansi-native</artifactId>
             <version>1.5</version>
         </dependency>
+        <dependency>
+            <groupId>com.jakewharton.picnic</groupId>
+            <artifactId>picnic</artifactId>
+            <version>0.3.1</version>
+        </dependency>
     </dependencies>
 </project>
