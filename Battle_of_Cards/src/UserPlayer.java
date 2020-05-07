@@ -12,11 +12,11 @@ public class UserPlayer extends Player {
     private boolean isPlayerTurnToPutCardOnTable;
     Card card;
     Table table;
-    Inputs inputs;
+    Engine engine;
 
     @Override
     public int chooseAtribiuteToPlay() {
-        int userChoice = Integer.parseInt(inputs.getUserInput()); // wez input od engine
+        int userChoice = Integer.parseInt(engine.getUserInput());
 
         switch (userChoosedAtribiute){
             case 1:
