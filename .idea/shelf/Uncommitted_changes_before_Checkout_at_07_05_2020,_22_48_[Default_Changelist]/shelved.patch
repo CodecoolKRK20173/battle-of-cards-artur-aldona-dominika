@@ -1,0 +1,114 @@
+Index: Battle_of_Cards/src/UserPlayer.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import java.util.List;\n\npublic class UserPlayer extends Player {\n\n    public UserPlayer(String name) {\n        super(name);\n    }\n\n    public int userChoosedAtribiute; // Input class will input user choice\n    public List<Card> playerCardsSet;\n    public boolean isPlayerTurnToPutCardOnTable;\n    Card card;\n    Table table;\n    Inputs inputs;\n\n    @Override\n    protected int chooseAtribiuteToPlay() {\n        int userChoice = Integer.parseInt(inputs.getUserInput());\n\n        switch (userChoosedAtribiute){\n            case 1:\n                userChoice = card.getIntelligence();\n                break;\n            case 2:\n                userChoice = card.getStrength();\n                break;\n            case 3:\n                userChoice = card.getEndurance();\n                break;\n            case 4:\n                userChoice = card.getAgility();\n                break;\n        }\n        return userChoice;\n    }\n\n    @Override\n    protected boolean setPlayerTurn(boolean Turn) {\n        return isPlayerTurnToPutCardOnTable = Turn;\n    }\n\n    @Override\n    protected void addCardToPlayerCardSet(Card card) {\n        playerCardsSet.add(card);\n    }\n\n    @Override\n    protected void playerGameTurn() {\n//        int playerCardSetLenght = playerCardsSet.size();\n//        int playerCardSetLenghtToIncrement = playerCardsSet.size();\n//\n//        if (playerCardSetLenght == playerCardSetLenghtToIncrement){\n//            setPlayerTurn(true);\n//        } else {\n//            setPlayerTurn(false);\n//        }\n\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Battle_of_Cards/src/UserPlayer.java	(revision 243796f82a6c628fb3c73817e64ef6f10e494a68)
++++ Battle_of_Cards/src/UserPlayer.java	(date 1588884446771)
+@@ -2,20 +2,25 @@
+ 
+ public class UserPlayer extends Player {
+ 
+-    public UserPlayer(String name) {
++    public UserPlayer(String name, List<Card> playerCardsSet) {
+         super(name);
++        this.playerCardsSet = playerCardsSet;
+     }
+ 
+-    public int userChoosedAtribiute; // Input class will input user choice
+-    public List<Card> playerCardsSet;
+-    public boolean isPlayerTurnToPutCardOnTable;
++    private int userChoosedAtribiute;
++    private List<Card> playerCardsSet;
++    private boolean isPlayerTurnToPutCardOnTable;
+     Card card;
+     Table table;
+-    Inputs inputs;
++    Engine engine;
++
++    public UserPlayer(String firstPlayerName) {
++        super(firstPlayerName);
++    }
+ 
+     @Override
+-    protected int chooseAtribiuteToPlay() {
+-        int userChoice = Integer.parseInt(inputs.getUserInput());
++    public int chooseAtribiuteToPlay() {
++        int userChoice = Integer.parseInt(engine.getUserInput());
+ 
+         switch (userChoosedAtribiute){
+             case 1:
+@@ -35,25 +40,13 @@
+     }
+ 
+     @Override
+-    protected boolean setPlayerTurn(boolean Turn) {
++    public boolean setPlayerTurn(boolean Turn) {
+         return isPlayerTurnToPutCardOnTable = Turn;
+     }
+ 
+     @Override
+-    protected void addCardToPlayerCardSet(Card card) {
++    public void addCardToPlayerCardSet(Card card) {
+         playerCardsSet.add(card);
+     }
+ 
+-    @Override
+-    protected void playerGameTurn() {
+-//        int playerCardSetLenght = playerCardsSet.size();
+-//        int playerCardSetLenghtToIncrement = playerCardsSet.size();
+-//
+-//        if (playerCardSetLenght == playerCardSetLenghtToIncrement){
+-//            setPlayerTurn(true);
+-//        } else {
+-//            setPlayerTurn(false);
+-//        }
+-
+-    }
+-}
++}
+\ No newline at end of file
+Index: Battle_of_Cards/src/Player.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>public abstract class Player {\n\n    protected String name;\n\n    public Player(String name) {\n        this.name = name;\n    }\n\n    protected String getName(){\n        return name;\n    }\n\n    protected abstract int chooseAtribiuteToPlay();\n    protected abstract boolean setPlayerTurn(boolean Turn);\n    protected abstract void addCardToPlayerCardSet(Card card);\n    protected abstract void playerGameTurn();\n\n    // playerCardsSet (hand) - lista kart ktore Player otrzymuje od table (16) pozniej bedzie wiecej, private\n    // jesli do hand trafia dwie karty (wygrana) to jest ruch gracza (jakis boolean = True)\n    // gracz ktory przegra nie dostaje dwoch kart (przegrana) to jest ruch przeciwnika (jakis boolean = Fase)\n    // ...gracz decyduje jakim atrybutem bedzie rozgrywka np strengh (wywolanie metody jest w engine)\n    // jesli przeciwnik wybral atrybut to gracz musi grac tym atrybutem\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Battle_of_Cards/src/Player.java	(revision 243796f82a6c628fb3c73817e64ef6f10e494a68)
++++ Battle_of_Cards/src/Player.java	(date 1588884446779)
+@@ -1,23 +1,20 @@
++import java.util.List;
++
+ public abstract class Player {
+ 
+-    protected String name;
++    public String name;
++    private List<Card> playerCardsSet;
+ 
+     public Player(String name) {
+         this.name = name;
+     }
+ 
+-    protected String getName(){
++    public String getName(){
+         return name;
+     }
+ 
+-    protected abstract int chooseAtribiuteToPlay();
+-    protected abstract boolean setPlayerTurn(boolean Turn);
+-    protected abstract void addCardToPlayerCardSet(Card card);
+-    protected abstract void playerGameTurn();
++    public abstract int chooseAtribiuteToPlay();
++    public abstract boolean setPlayerTurn(boolean Turn);
++    public abstract void addCardToPlayerCardSet(Card card);
+ 
+-    // playerCardsSet (hand) - lista kart ktore Player otrzymuje od table (16) pozniej bedzie wiecej, private
+-    // jesli do hand trafia dwie karty (wygrana) to jest ruch gracza (jakis boolean = True)
+-    // gracz ktory przegra nie dostaje dwoch kart (przegrana) to jest ruch przeciwnika (jakis boolean = Fase)
+-    // ...gracz decyduje jakim atrybutem bedzie rozgrywka np strengh (wywolanie metody jest w engine)
+-    // jesli przeciwnik wybral atrybut to gracz musi grac tym atrybutem
+ }
+\ No newline at end of file
