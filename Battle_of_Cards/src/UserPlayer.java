@@ -45,16 +45,4 @@ public class UserPlayer extends Player {
         playerCardsSet.add(card);
     }
 
-    @Override
-    public void playerGameTurn() {
-//        int playerCardSetLenght = playerCardsSet.size();
-//        int playerCardSetLenghtToIncrement = playerCardsSet.size();
-//
-//        if (playerCardSetLenght == playerCardSetLenghtToIncrement){
-//            setPlayerTurn(true);
-//        } else {
-//            setPlayerTurn(false);
-//        }
-
-    }
 }

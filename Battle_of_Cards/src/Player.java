@@ -16,6 +16,5 @@ public abstract class Player {
     public abstract int chooseAtribiuteToPlay();
     public abstract boolean setPlayerTurn(boolean Turn);
     public abstract void addCardToPlayerCardSet(Card card);
-    public abstract void playerGameTurn();
 
 }
