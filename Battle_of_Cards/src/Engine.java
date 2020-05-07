@@ -26,14 +26,6 @@ public class  Engine {
         System.out.flush();
     }
 
-    private void printMenu(){
-        System.out.println("|-------------------------------------------------|\n"
-                + "|                 DRAGON LEAGUE                   |\n"
-                + "|-------------------------------------------------|\n"
-                + "|1 - Start game          |3 - Show scores         |\n"
-                + "|2 - Show cards          |0 - EXIT                |\n"
-                + "|-------------------------------------------------|\n");
-    }
 
     public void start() {
         int menuOption;
@@ -41,7 +33,6 @@ public class  Engine {
         do {
             while (true) {
                 clearScreen();
-                printMenu();
                 System.out.print("Please select an option: ");
                 try {
                     menuOption = Integer.parseInt(getUserInput());
