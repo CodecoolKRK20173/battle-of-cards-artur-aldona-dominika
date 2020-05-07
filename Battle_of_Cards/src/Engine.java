@@ -8,8 +8,13 @@ public class  Engine {
 
     private Scanner scanner = new Scanner(System.in);
     Table table = new Table();
-    Player player1;
-    Player player2;
+
+     private String firstPlayerName;
+     private String secondPlayerName;
+
+     UserPlayer userPlayer1 = new UserPlayer(firstPlayerName,);
+     UserPlayer userPlayer2 = new UserPlayer(secondPlayerName,);
+
     View view = new View();
 
     public Engine() throws IOException, SAXException, ParserConfigurationException {
@@ -69,4 +74,19 @@ public class  Engine {
         }
         while (menuOption != 0);
     }
+
+    // zabezpieczenie przed debilami
+
+    public void playerNameUserSetup(){
+        System.out.println("Enter Player 1 name: ");
+        firstPlayerName = scanner.nextLine();
+        System.out.println("Enter Player 2 name: ");
+        secondPlayerName = scanner.nextLine();
+    }
+
+
+    public void printUserName(UserPlayer userPlayerObject){
+        System.out.println(userPlayerObject.getName());
+    }
+
 }
