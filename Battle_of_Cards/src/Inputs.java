@@ -14,4 +14,3 @@ class Inputs {
         System.out.flush();
     }
 }
-

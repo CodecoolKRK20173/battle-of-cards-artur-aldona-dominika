@@ -1,0 +1,146 @@
+Index: Battle_of_Cards/src/Inputs.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import java.util.Scanner;\n\nclass Inputs {\n\n    public void takeInput(String messageForUser) {\n        Scanner input = new Scanner(System.in);\n        System.out.println(messageForUser);\n        input.nextLine();\n    }\n}\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Battle_of_Cards/src/Inputs.java	(revision 7919677ff1b3db0d8a1b358a406a716f4ab54622)
++++ Battle_of_Cards/src/Inputs.java	(date 1588781421156)
+@@ -1,11 +1,12 @@
+ import java.util.Scanner;
+ 
+ class Inputs {
++    private Scanner scanner = new Scanner(System.in);
+ 
+-    public void takeInput(String messageForUser) {
+-        Scanner input = new Scanner(System.in);
+-        System.out.println(messageForUser);
+-        input.nextLine();
++    public String getUserInput() {
++        String input = scanner.nextLine();
++        System.out.println();
++        return input;
+     }
+ }
+ 
+Index: Battle_of_Cards/src/CardsCollection.java
+===================================================================
+--- Battle_of_Cards/src/CardsCollection.java	(revision 7919677ff1b3db0d8a1b358a406a716f4ab54622)
++++ Battle_of_Cards/src/CardsCollection.java	(revision 7919677ff1b3db0d8a1b358a406a716f4ab54622)
+@@ -1,21 +0,0 @@
+-import java.util.ArrayList;
+-
+-public class CardsCollection {
+-    private ArrayList<Card> arrayCards;
+-
+-    CardsCollection() {
+-        this.arrayCards = new ArrayList<>();
+-    }
+-
+-    public ArrayList getCardsArray() {
+-        return arrayCards;
+-    }
+-//
+-//    public ArrayList addToArray() {
+-//
+-//        for (int i =  0; i < arrayCards.size(); i++) {
+-//            arrayCards.add()
+-//        }
+-//    }
+-
+-}
+\ No newline at end of file
+Index: Battle_of_Cards/src/UserPlayer.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>public class UserPlayer extends Player {\n\n    public UserPlayer(String name) {\n        super(name);\n    }\n\n\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Battle_of_Cards/src/UserPlayer.java	(revision 7919677ff1b3db0d8a1b358a406a716f4ab54622)
++++ Battle_of_Cards/src/UserPlayer.java	(date 1588781421156)
+@@ -1,8 +1,52 @@
++import java.util.List;
++
+ public class UserPlayer extends Player {
+ 
+     public UserPlayer(String name) {
+         super(name);
+     }
+ 
++    Card card;
++    Table table;
++    public int userChoosedAtribiute; // Input class will input user choice
++    public List<Card> playerCardsSet;
++    public boolean isPlayerTurnToPutCardOnTable;
++
++    @Override
++    protected int chooseAtribiuteToPlay() {
++        int userChoice = 1; // tutaj uzyje klasy Input
++
++        switch (userChoosedAtribiute){
++            case 1:
++                userChoice = card.getIntelligence();
++                break;
++            case 2:
++                userChoice = card.getStrength();
++                break;
++            case 3:
++                userChoice = card.getEndurance();
++                break;
++            case 4:
++                userChoice = card.getAgility();
++                break;
++        }
++        return userChoice;
++    }
++
++    @Override
++    protected boolean setPlayerTurn(boolean Turn) {
++        return isPlayerTurnToPutCardOnTable = Turn;
++    }
+ 
++    @Override
++    protected void addCardToPlayerCardSet(Card card) {
++        playerCardsSet.add(card);
++    }
++
++    @Override
++    protected void playerGameTurn() {
++    // jesli playerCardsSet dostanie dwie karty to setPlayerTurn(True)
++        // jesli playerCardsSet nie dostanie karty po odjeciu jednej karty z playerCardsSet
++        // to setPlayerTurn(False)
++    }
+ }
+\ No newline at end of file
+Index: Battle_of_Cards/src/Player.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>public abstract class Player {\n\n    protected String name;\n\n    public Player(String name) {\n        this.name = name;\n    }\n\n    public String getName(){\n        return name;\n    }\n\n\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Battle_of_Cards/src/Player.java	(revision 7919677ff1b3db0d8a1b358a406a716f4ab54622)
++++ Battle_of_Cards/src/Player.java	(date 1588781421156)
+@@ -6,9 +6,18 @@
+         this.name = name;
+     }
+ 
+-    public String getName(){
++    protected String getName(){
+         return name;
+     }
+ 
++    protected abstract int chooseAtribiuteToPlay();
++    protected abstract boolean setPlayerTurn(boolean Turn);
++    protected abstract void addCardToPlayerCardSet(Card card);
++    protected abstract void playerGameTurn();
+ 
++    // playerCardsSet (hand) - lista kart ktore Player otrzymuje od table (16) pozniej bedzie wiecej, private
++    // jesli do hand trafia dwie karty (wygrana) to jest ruch gracza (jakis boolean = True)
++    // gracz ktory przegra nie dostaje dwoch kart (przegrana) to jest ruch przeciwnika (jakis boolean = Fase)
++    // ...gracz decyduje jakim atrybutem bedzie rozgrywka np strengh (wywolanie metody jest w engine)
++    // jesli przeciwnik wybral atrybut to gracz musi grac tym atrybutem
+ }
+\ No newline at end of file

@@ -1,40 +1,39 @@
 import com.github.tomaslanger.chalk.Chalk;
 import com.jakewharton.fliptables.FlipTable;
-import com.jakewharton.fliptables.FlipTableConverters;
+import org.apache.commons.lang3.StringUtils;
+import org.xml.sax.SAXException;
+import static org.fusesource.jansi.Ansi.*;
+import static org.fusesource.jansi.Ansi.Color.*;
 
-import java.util.Arrays;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.IOException;
 
 public class View {
 
-    View() {
-
+    void Menu() {
+        String[] headers = {ansi().fg(RED).a("WELCOME IN DRAGON LEAGUE") + "" + ansi().reset() + "\n" +
+                ansi().fg(RED).a("CHOOSE AN OPTION:       ").bold().toString() + "" + ansi().reset()};
+        String[][] data = {{"1. SEE ALL OF CARDS\n2. LET'S PLAY!"}};
+        System.out.print(FlipTable.of(headers, data));
+        //switch 1 --> printCards();
+        //switch 2 --> play();
     }
-    void printCards() {
 
-        Card card1 = new Card("Zarroit", 10,10, 10, 10);
-        Card card2 = new Card("Zaelliod", 20, 20, 20, 20);
+    void printCards() throws IOException, SAXException, ParserConfigurationException {
 
+        Table listOfCards = new Table();
+        for (int i = 0; i < listOfCards.getCards().size(); i++) {
+            String player = StringUtils.center("PLAYER", 41);
+            String datas = listOfCards.getCards().get(i).toString();
 
-        String card1Str = FlipTableConverters.fromIterable(Arrays.asList(card1), Card.class);
-        String card2Str = FlipTableConverters.fromIterable(Arrays.asList(card2), Card.class);
-
-
-        String headers[] = {"PLAYER 1"};
-        String data[][] = {{Chalk.on(card1.toString()).cyan().toString()}};
-
-        String headers1[] = {"PLAYER 2"};
-        String data1[][] = {{Chalk.on(card2.toString()).cyan().toString()}};
-
-
-        System.out.println(FlipTable.of(headers, data));
-        System.out.println(FlipTable.of(headers1, data1));
-
+            String[] headers = {Chalk.on(player).bold().magenta().toString()};
+            String[][] data = {{datas.toString()}};
+            System.out.print(FlipTable.of(headers, data));
+        }
     }
 }
+//imie karty na srodku
 
 //input imie uzytkownika
 //dla playera 1-karta player 1 -->
-//randomowe wyswietlanie karty-karta playera 1-input ktora umiejetnosc wykorzystac
 //porownanie do karty player 2 - print obu kart obok siebie
-//mozliwosc zobaczenia wszystkich kart przed gra
-//
