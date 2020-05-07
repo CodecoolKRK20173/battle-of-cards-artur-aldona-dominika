@@ -75,7 +75,6 @@ public class  Engine {
         while (menuOption != 0);
     }
 
-    // zabezpieczenie przed debilami
 
     public void playerNameUserSetup(){
         System.out.println("Enter Player 1 name: ");
