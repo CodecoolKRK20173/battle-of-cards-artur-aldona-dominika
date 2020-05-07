@@ -6,15 +6,17 @@ public class UserPlayer extends Player {
         super(name);
     }
 
-    public int userChoosedAtribiute; // Input class will input user choice
+    public int userChoosedAtribiute;
     public List<Card> playerCardsSet;
     public boolean isPlayerTurnToPutCardOnTable;
     Card card;
     Table table;
+    Inputs inputs;
 
     @Override
     protected int chooseAtribiuteToPlay() {
-        int userChoice = 1; // tutaj uzyje klasy Input
+        String userInput = inputs.getUserInput();
+        int userChoice = Integer.parseInt(userInput);
 
         switch (userChoosedAtribiute){
             case 1:
@@ -48,5 +50,6 @@ public class UserPlayer extends Player {
     // jesli playerCardsSet dostanie dwie karty to setPlayerTurn(True)
         // jesli playerCardsSet nie dostanie karty po odjeciu jednej karty z playerCardsSet
         // to setPlayerTurn(False)
+
     }
 }
