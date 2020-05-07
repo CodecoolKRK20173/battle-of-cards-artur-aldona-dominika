@@ -6,11 +6,11 @@ public class UserPlayer extends Player {
         super(name);
     }
 
-    Card card;
-    Table table;
     public int userChoosedAtribiute; // Input class will input user choice
     public List<Card> playerCardsSet;
     public boolean isPlayerTurnToPutCardOnTable;
+    Card card;
+    Table table;
 
     @Override
     protected int chooseAtribiuteToPlay() {
