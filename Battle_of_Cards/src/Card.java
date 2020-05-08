@@ -47,6 +47,7 @@ public class Card implements Comparable<Card> {
 
     @Override
     public String toString() {
+        View card = new View();
         AsciiArts art = new AsciiArts();
         String gryphon = art.gryphon();
         String name = "NAME: ";
@@ -59,8 +60,8 @@ public class Card implements Comparable<Card> {
                         ansi().fg(GREEN).a(strength) + "" + ansi().fg(MAGENTA).a("%3$31d\t") + "" + ansi().reset() + "\n" +
                         ansi().fg(GREEN).a(endurance) + "" + ansi().fg(MAGENTA).a("%4$30d\t") + "" + ansi().reset() + "\n" +
                         ansi().fg(GREEN).a(agility) + "" + ansi().fg(MAGENTA).a("%5$32d\t") + "" + ansi().reset(),
-                        getName(), getIntelligence(),
-                        getStrength(), getEndurance(), getAgility());
+                getName(), getIntelligence(),
+                getStrength(), getEndurance(), getAgility());
         return format;
     }
 

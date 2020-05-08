@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Collections;
 
 public class Table {
-    
+
     private XMLParser xml = new XMLParser();
     private List<Card> cards;
 
@@ -23,5 +23,9 @@ public class Table {
 
     public void shuffle() {
         Collections.shuffle(this.cards);
+    }
+
+    public void sort() {
+        Collections.sort(cards);
     }
 }
