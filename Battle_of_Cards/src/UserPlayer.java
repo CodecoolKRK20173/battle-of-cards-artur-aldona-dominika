@@ -10,12 +10,8 @@ public class UserPlayer extends Player {
     private int userChoosedAtribiute;
     private List<Card> playerCardsSet;
     private boolean isPlayerTurnToPutCardOnTable;
-<<<<<<< HEAD
+
     private boolean starts = false;
-    Card card;
-    Table table;
-    Engine engine;
-=======
     Card card;
     Table table;
     Engine engine;
@@ -23,8 +19,6 @@ public class UserPlayer extends Player {
     public UserPlayer(String firstPlayerName) {
         super(firstPlayerName);
     }
-    //zrobilam ten konstruktor bo nie wiem co mialo byc w tym pierwszym jako argument-a potrzebowalam sprawdzic czy dziala
->>>>>>> 61eb5e7218a108ff3138e877ef196e42bf5ae0be
 
     @Override
     public int chooseAtribiuteToPlay() {
@@ -73,7 +67,6 @@ public class UserPlayer extends Player {
         playerCardsSet.add(card);
     }
 
-<<<<<<< HEAD
     public void wonTheRound() {
         Card tempCard = this.playerCardsSet.get(0);
         this.playerCardsSet.remove(tempCard);
@@ -83,6 +76,5 @@ public class UserPlayer extends Player {
     public void lostTheRound() {
         playerCardsSet.remove(0);
     }
-=======
->>>>>>> 61eb5e7218a108ff3138e877ef196e42bf5ae0be
+
 }
