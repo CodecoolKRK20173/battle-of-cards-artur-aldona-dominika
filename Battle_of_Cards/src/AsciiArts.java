@@ -1,8 +1,14 @@
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 61eb5e7218a108ff3138e877ef196e42bf5ae0be
 public class AsciiArts {
 
     public String gryphon() {
         String gryphon =
                 "  ____       ____\n" +
+<<<<<<< HEAD
                         "  /    )     (    \\\n" +
                         " /    (  ^_^  )    \\\n"  +
                         "|  {   \\('v')/   }  |\n" +
@@ -10,6 +16,15 @@ public class AsciiArts {
                         "|_)(   /\\   /\\   )(_|\n" +
                         "|)  (_ | \\|/  |_)  (|\n" +
                         "'     \"--^^^^--\"\n";
+=======
+                "  /    )     (    \\\n" +
+                " /    (  ^_^  )    \\\n"  +
+                "|  {   \\('v')/   }  |\n" +
+                "|   {   /   \\   }   |\n" +
+                "|_)(   /\\   /\\   )(_|\n" +
+                "|)  (_ | \\|/  |_)  (|\n" +
+                "'     \"--^^^^--\"\n";
+>>>>>>> 61eb5e7218a108ff3138e877ef196e42bf5ae0be
         return gryphon;
     }
 
@@ -44,4 +59,8 @@ public class AsciiArts {
                 "  \\______(_______;;;)__;;;)";
         return youWon;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 61eb5e7218a108ff3138e877ef196e42bf5ae0be

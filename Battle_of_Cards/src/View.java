@@ -33,13 +33,15 @@ public class View {
     public void printCards() throws IOException, SAXException, ParserConfigurationException {
 
         Table listOfCards = new Table();
+        Engine name = new Engine();
         for (int i = 0; i < listOfCards.getCards().size(); i++) {
-            String player = StringUtils.center("PLAYER", 50);
+            String player = StringUtils.center(name.getUserInput().toUpperCase(), 50);
             String datas = listOfCards.getCards().get(i).toString();
 
             String[] headers = {Chalk.on(player).bold().magenta().toString()};
             String[][] data = {{datas}};
-            System.out.print(FlipTable.of(headers, data));
+
+                System.out.print(FlipTable.of(headers, data));
 
         }
     }

@@ -8,9 +8,20 @@ public class  Engine {
 
     private Scanner scanner = new Scanner(System.in);
     Table table = new Table();
+<<<<<<< HEAD
     View printCards = new View();
     UserPlayer firstPlayer;
     UserPlayer secondPlayer;
+=======
+
+    private String firstPlayerName;
+    private String secondPlayerName;
+
+    UserPlayer userPlayer1 = new UserPlayer(firstPlayerName);
+    UserPlayer userPlayer2 = new UserPlayer(secondPlayerName);
+
+    View view = new View();
+>>>>>>> 61eb5e7218a108ff3138e877ef196e42bf5ae0be
 
     public Engine() throws IOException, SAXException, ParserConfigurationException {
     }
@@ -45,7 +56,11 @@ public class  Engine {
             }
             switch (menuOption) {
                 case 1:
+<<<<<<< HEAD
                     printCards.printCards();
+=======
+                    System.out.println("New game");
+>>>>>>> 61eb5e7218a108ff3138e877ef196e42bf5ae0be
                     break;
                 case 2:
                     clearScreen();
@@ -64,6 +79,7 @@ public class  Engine {
         while (menuOption != 0);
     }
 
+<<<<<<< HEAD
     public void score() {
         System.out.println(this.firstPlayer.getName() + ": " + this.firstPlayer.getHand().size() + "|" + secondPlayer.getHand().size() + " :" + secondPlayer.getName() + "\n");
     }
@@ -231,3 +247,20 @@ public class  Engine {
         };
     }
 
+=======
+
+    public String playerNameUserSetup(){
+        System.out.println("Enter Player 1 name: ");
+        firstPlayerName = scanner.nextLine();
+        System.out.println("Enter Player 2 name: ");
+        secondPlayerName = scanner.nextLine();
+        return firstPlayerName + secondPlayerName;
+    }
+
+
+    public void printUserName(UserPlayer userPlayerObject){
+        System.out.println(userPlayerObject.getName());
+    }
+
+}
+>>>>>>> 61eb5e7218a108ff3138e877ef196e42bf5ae0be
