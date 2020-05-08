@@ -2,19 +2,26 @@ import java.util.List;
 
 public class UserPlayer extends Player {
 
-    public UserPlayer(String name) {
+    public UserPlayer(String name, List<Card> playerCardsSet) {
         super(name);
+        this.playerCardsSet = playerCardsSet;
     }
 
-    public int userChoosedAtribiute; // Input class will input user choice
-    public List<Card> playerCardsSet;
-    public boolean isPlayerTurnToPutCardOnTable;
+    private int userChoosedAtribiute;
+    private List<Card> playerCardsSet;
+    private boolean isPlayerTurnToPutCardOnTable;
     Card card;
     Table table;
+    Engine engine;
+
+    public UserPlayer(String firstPlayerName) {
+        super(firstPlayerName);
+    }
+    //zrobilam ten konstruktor bo nie wiem co mialo byc w tym pierwszym jako argument-a potrzebowalam sprawdzic czy dziala
 
     @Override
-    protected int chooseAtribiuteToPlay() {
-        int userChoice = 1; // tutaj uzyje klasy Input
+    public int chooseAtribiuteToPlay() {
+        int userChoice = Integer.parseInt(engine.getUserInput());
 
         switch (userChoosedAtribiute){
             case 1:
@@ -34,19 +41,13 @@ public class UserPlayer extends Player {
     }
 
     @Override
-    protected boolean setPlayerTurn(boolean Turn) {
+    public boolean setPlayerTurn(boolean Turn) {
         return isPlayerTurnToPutCardOnTable = Turn;
     }
 
     @Override
-    protected void addCardToPlayerCardSet(Card card) {
+    public void addCardToPlayerCardSet(Card card) {
         playerCardsSet.add(card);
     }
 
-    @Override
-    protected void playerGameTurn() {
-    // jesli playerCardsSet dostanie dwie karty to setPlayerTurn(True)
-        // jesli playerCardsSet nie dostanie karty po odjeciu jednej karty z playerCardsSet
-        // to setPlayerTurn(False)
-    }
 }

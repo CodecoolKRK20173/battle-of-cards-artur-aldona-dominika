@@ -8,8 +8,13 @@ public class  Engine {
 
     private Scanner scanner = new Scanner(System.in);
     Table table = new Table();
-    Player player1;
-    Player player2;
+
+    private String firstPlayerName;
+    private String secondPlayerName;
+
+    UserPlayer userPlayer1 = new UserPlayer(firstPlayerName);
+    UserPlayer userPlayer2 = new UserPlayer(secondPlayerName);
+
     View view = new View();
 
     public Engine() throws IOException, SAXException, ParserConfigurationException {
@@ -26,14 +31,6 @@ public class  Engine {
         System.out.flush();
     }
 
-    private void printMenu(){
-        System.out.println("|-------------------------------------------------|\n"
-                + "|                 DRAGON LEAGUE                   |\n"
-                + "|-------------------------------------------------|\n"
-                + "|1 - Start game          |3 - Show scores         |\n"
-                + "|2 - Show cards          |0 - EXIT                |\n"
-                + "|-------------------------------------------------|\n");
-    }
 
     public void start() {
         int menuOption;
@@ -41,7 +38,6 @@ public class  Engine {
         do {
             while (true) {
                 clearScreen();
-                printMenu();
                 System.out.print("Please select an option: ");
                 try {
                     menuOption = Integer.parseInt(getUserInput());
@@ -52,7 +48,7 @@ public class  Engine {
             }
             switch (menuOption) {
                 case 1:
-                System.out.println("New game");
+                    System.out.println("New game");
                     break;
                 case 2:
                     clearScreen();
@@ -69,4 +65,19 @@ public class  Engine {
         }
         while (menuOption != 0);
     }
+
+
+    public String playerNameUserSetup(){
+        System.out.println("Enter Player 1 name: ");
+        firstPlayerName = scanner.nextLine();
+        System.out.println("Enter Player 2 name: ");
+        secondPlayerName = scanner.nextLine();
+        return firstPlayerName + secondPlayerName;
+    }
+
+
+    public void printUserName(UserPlayer userPlayerObject){
+        System.out.println(userPlayerObject.getName());
+    }
+
 }

@@ -1,0 +1,14 @@
+<changelist name="Uncommitted_changes_before_Checkout_at_07_05_2020,_22_47_[Default_Changelist]" date="1588884446793" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_07_05_2020,_22_47_[Default_Changelist]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 07.05.2020, 22:47 [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/Player.class" />
+    <option name="AFTER_PATH" value="target/classes/Player.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_07_05_2020,_22_47_[Default_Changelist]/Player.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/UserPlayer.class" />
+    <option name="AFTER_PATH" value="target/classes/UserPlayer.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_07_05_2020,_22_47_[Default_Changelist]/UserPlayer.class" />
+  </binary>
+</changelist>
