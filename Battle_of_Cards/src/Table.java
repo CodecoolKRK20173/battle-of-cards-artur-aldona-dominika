@@ -13,7 +13,7 @@ public class Table {
     public Table() throws ParserConfigurationException, SAXException, IOException {
 
 
-        this.cards = xml.CardParser(xml.loadXMLDocument("/home/dominika/codecool/battle-of-cards-artur-aldona-dominika/Battle_of_Cards/src/resources/DragonLeague.xml"));
+        this.cards = xml.CardParser(xml.loadXMLDocument("C:\\Users\\aldon\\Desktop\\battle-of-cards-artur-aldona-dominika\\Battle_of_Cards\\src\\resources\\DragonLeague.xml"));
     }
 
 
@@ -23,5 +23,9 @@ public class Table {
 
     public void shuffle() {
         Collections.shuffle(this.cards);
+    }
+
+    public void sort() {
+        Collections.sort(cards);
     }
 }

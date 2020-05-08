@@ -27,7 +27,7 @@ public class View {
                         "2. LET'S PLAY!","3. SHOW SCORES ", "4. EXIT ").toString()}};
 
         System.out.print(FlipTable.of(headers, data).toString());
-        System.out.println(art.youWon());
+//        System.out.println(art.youWon());
     }
 
     public void printCards() throws IOException, SAXException, ParserConfigurationException {

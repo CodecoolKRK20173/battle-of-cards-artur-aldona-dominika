@@ -8,13 +8,10 @@ public class Main {
     public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
 
 
-        View printCards = new View();
-        printCards.Menu();
-        printCards.printCards();
+//        View printCards = new View();
+//        printCards.Menu();
+//        printCards.printCards();
         Engine gameStart = new Engine();
         gameStart.start();
-
-        Engine engine = new Engine();
-        engine.start();
     }
 }

@@ -2,20 +2,22 @@ import java.util.List;
 
 public class UserPlayer extends Player {
 
-    public UserPlayer(String name) {
+    public UserPlayer(String name, List<Card> playerCardsSet) {
         super(name);
+        this.playerCardsSet = playerCardsSet;
     }
 
-    public int userChoosedAtribiute; // Input class will input user choice
-    public List<Card> playerCardsSet;
-    public boolean isPlayerTurnToPutCardOnTable;
+    private int userChoosedAtribiute;
+    private List<Card> playerCardsSet;
+    private boolean isPlayerTurnToPutCardOnTable;
+    private boolean starts = false;
     Card card;
     Table table;
-    Inputs inputs;
+    Engine engine;
 
     @Override
-    protected int chooseAtribiuteToPlay() {
-        int userChoice = Integer.parseInt(inputs.getUserInput());
+    public int chooseAtribiuteToPlay() {
+        int userChoice = Integer.parseInt(engine.getUserInput());
 
         switch (userChoosedAtribiute){
             case 1:
@@ -34,26 +36,39 @@ public class UserPlayer extends Player {
         return userChoice;
     }
 
+    public void starts() {
+        this.starts = true;
+    }
+
+    public void doesNotStart() {
+        this.starts = false;
+    }
+
+    public boolean ifStarts() {
+        return starts;
+    }
+
+    public List<Card> getHand() {
+        return playerCardsSet;
+    }
+
     @Override
-    protected boolean setPlayerTurn(boolean Turn) {
+    public boolean setPlayerTurn(boolean Turn) {
         return isPlayerTurnToPutCardOnTable = Turn;
     }
 
     @Override
-    protected void addCardToPlayerCardSet(Card card) {
+    public void addCardToPlayerCardSet(Card card) {
         playerCardsSet.add(card);
     }
 
-    @Override
-    protected void playerGameTurn() {
-//        int playerCardSetLenght = playerCardsSet.size();
-//        int playerCardSetLenghtToIncrement = playerCardsSet.size();
-//
-//        if (playerCardSetLenght == playerCardSetLenghtToIncrement){
-//            setPlayerTurn(true);
-//        } else {
-//            setPlayerTurn(false);
-//        }
+    public void wonTheRound() {
+        Card tempCard = this.playerCardsSet.get(0);
+        this.playerCardsSet.remove(tempCard);
+        this.playerCardsSet.add(tempCard);
+    }
 
+    public void lostTheRound() {
+        playerCardsSet.remove(0);
     }
 }
